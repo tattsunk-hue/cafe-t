@@ -50,7 +50,7 @@ module.exports = async function handler(request, response) {
   if (!articleId) {
     apiUrl.searchParams.set(
       "filters",
-      `site[equals]${SITE_ID}[and]publishedAt[exists]`
+      `site[contains]${SITE_ID}[and]publishedAt[exists]`
     );
     apiUrl.searchParams.set("orders", "-publishedAt");
     apiUrl.searchParams.set("limit", String(limit));
@@ -80,7 +80,12 @@ module.exports = async function handler(request, response) {
 
     const data = await microCmsResponse.json();
 
-    if (articleId && (data.site !== SITE_ID || !data.publishedAt)) {
+    if (
+      articleId &&
+      (!Array.isArray(data.site) ||
+        !data.site.includes(SITE_ID) ||
+        !data.publishedAt)
+    ) {
       sendJson(response, 404, { message: "News not found." });
       return;
     }
