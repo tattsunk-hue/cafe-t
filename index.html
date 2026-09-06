@@ -9,6 +9,7 @@
     />
     <title>海の見えるCafé T</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/news.css" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -26,6 +27,7 @@
         <span></span>
       </button>
       <nav class="site-nav" id="site-nav" data-nav>
+        <a href="#news">News</a>
         <a href="#concept">Concept</a>
         <a href="#menu">Menu</a>
         <a href="#gallery">Gallery</a>
@@ -62,6 +64,32 @@
           <p>
             やわらかな光と波音に包まれて、<br />いつもの一日を少しだけ特別に。
           </p>
+        </div>
+      </section>
+
+      <section class="section news-home" id="news" aria-labelledby="news-heading">
+        <div class="news-layout">
+          <div class="news-intro reveal">
+            <p class="eyebrow">News</p>
+            <h2 id="news-heading">お知らせ</h2>
+            <p class="news-description">
+              営業日や季節のメニューなど、最新のお知らせをご案内します。
+            </p>
+          </div>
+          <div class="news-feed reveal">
+            <div
+              class="news-list"
+              data-news-list
+              data-limit="3"
+              aria-live="polite"
+              aria-busy="true"
+            >
+              <p class="news-status" data-news-status>お知らせを読み込んでいます。</p>
+            </div>
+            <a class="news-more-link" href="news.html">
+              お知らせ一覧を見る <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -305,6 +333,7 @@
         <p>海を眺めて、<br />ほどける時間。</p>
       </div>
       <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="news.html">News</a>
         <a href="#concept">Concept</a>
         <a href="#menu">Menu</a>
         <a href="#gallery">Gallery</a>
@@ -318,5 +347,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/news.js"></script>
   </body>
 </html>
